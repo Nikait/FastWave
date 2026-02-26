@@ -39,7 +39,7 @@ The original general architecture is preserved as in **[NU-Wave 2](https://arxiv
 ## Results
 
 All models are evaluated on the **VCTK dataset** (48 kHz, 8 speakers test set), measuring upsampling from 8 / 12 / 16 / 24 kHz to 48 kHz. 
-↑ higher is better &nbsp; | &nbsp; ↓ lower is better
+FLOPs are given for one function evaluation.
 For comparison we include [AudioSR](https://arxiv.org/abs/2309.07314) (latent diffusion model) and [FlowHigh](https://arxiv.org/abs/2501.04926) (single-step conditional flow matching, ICASSP 2025) as strong external baselines.
 
 | Metric | FastWave 4 NFE | FastWave 8 NFE | NU-Wave 2 8 NFE | FlowHigh | AudioSR |
@@ -68,3 +68,15 @@ For comparison we include [AudioSR](https://arxiv.org/abs/2309.07314) (latent di
 | RTF ↓ | 0.16 ± 0.03 | 0.30 ± 0.14 | 0.26 ± 0.02 | **0.06 ± 0.02** | 4.99 ± 1.59 |
 | GFLOPs ↓ | **12.87** | **12.87** | 18.99 | 30.39 | 2536.2 |
 | #params ↓ | **1.3 M** | **1.3 M** | 1.8 M | 49.4 M | 1285.4 M |
+
+
+## Dataset
+
+### Dataset
+
+FastWave was trained and evaluated on the **VCTK dataset** (48 kHz, ~44 hours of speech from 110 speakers).
+
+1. Download VCTK from the [official source](https://datashare.ed.ac.uk/handle/10283/3443).
+2. Remove speaker p280 and p315
+3. run flac2wav.py on this dataset
+
