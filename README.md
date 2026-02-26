@@ -32,3 +32,39 @@ Two targeted changes reduce model size from 1.8 M to **1.3 M parameters** and cu
 The original general architecture is preserved as in **[NU-Wave 2](https://arxiv.org/abs/2206.08545)** Figure 1, mainly the architecture inside the STFC and BSFT blocks changes, we attach a picture:
 
 <img width="2670" height="1562" alt="image" src="https://github.com/user-attachments/assets/727eee21-d564-4584-8293-c7026494d925" />
+
+### Comparison with Pretrained / Large-Capacity Models
+
+
+## Results
+
+All models are evaluated on the **VCTK dataset** (48 kHz, 8 speakers test set), measuring upsampling from 8 / 12 / 16 / 24 kHz to 48 kHz. 
+↑ higher is better &nbsp; | &nbsp; ↓ lower is better
+For comparison we include [AudioSR](https://arxiv.org/abs/2309.07314) (latent diffusion model) and [FlowHigh](https://arxiv.org/abs/2501.04926) (single-step conditional flow matching, ICASSP 2025) as strong external baselines.
+
+| Metric | FastWave 4 NFE | FastWave 8 NFE | NU-Wave 2 8 NFE | FlowHigh | AudioSR |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **8 kHz** | | | | | |
+| SNR ↑ | **18.75 ± 4.84** | 18.53 ± 4.73 | 18.43 ± 4.92 | 18.04 ± 4.74 | 13.75 ± 3.83 |
+| LSD ↓ | 1.18 ± 0.12 | 1.19 ± 0.11 | 1.15 ± 0.10 | **0.96 ± 0.08** | 1.55 ± 0.15 |
+| LSD-LF ↓ | 0.36 ± 0.08 | 0.28 ± 0.05 | 0.22 ± 0.07 | **0.24 ± 0.02** | 0.44 ± 0.07 |
+| LSD-HF ↓ | 1.27 ± 0.13 | 1.29 ± 0.12 | 1.25 ± 0.11 | **1.05 ± 0.09** | 1.69 ± 0.17 |
+| **12 kHz** | | | | | |
+| SNR ↑ | 21.08 ± 5.71 | 20.93 ± 5.80 | 20.95 ± 5.18 | **21.17 ± 5.39** | 16.18 ± 3.96 |
+| LSD ↓ | 1.09 ± 0.11 | 1.06 ± 0.09 | 1.02 ± 0.08 | **0.90 ± 0.09** | 1.46 ± 0.16 |
+| LSD-LF ↓ | 0.49 ± 0.10 | 0.38 ± 0.06 | 0.27 ± 0.07 | **0.28 ± 0.05** | 0.55 ± 0.13 |
+| LSD-HF ↓ | 1.21 ± 0.13 | 1.20 ± 0.11 | 1.16 ± 0.09 | **1.03 ± 0.10** | 1.65 ± 0.18 |
+| **16 kHz** | | | | | |
+| SNR ↑ | 23.07 ± 5.85 | 23.08 ± 6.06 | 23.31 ± 5.17 | **23.58 ± 5.41** | 19.25 ± 3.82 |
+| LSD ↓ | 1.04 ± 0.10 | 0.98 ± 0.08 | 0.94 ± 0.08 | **0.85 ± 0.09** | 1.37 ± 0.15 |
+| LSD-LF ↓ | 0.59 ± 0.13 | 0.44 ± 0.08 | 0.30 ± 0.09 | **0.28 ± 0.05** | 0.54 ± 0.13 |
+| LSD-HF ↓ | 1.17 ± 0.12 | 1.14 ± 0.10 | 1.12 ± 0.09 | **1.02 ± 0.11** | 1.63 ± 0.18 |
+| **24 kHz** | | | | | |
+| SNR ↑ | 27.09 ± 4.84 | 27.22 ± 5.33 | 27.68 ± 4.21 | **27.80 ± 4.95** | 23.03 ± 3.48 |
+| LSD ↓ | 0.93 ± 0.08 | 0.83 ± 0.06 | 0.78 ± 0.06 | **0.74 ± 0.09** | 1.27 ± 0.15 |
+| LSD-LF ↓ | 0.66 ± 0.14 | 0.48 ± 0.09 | 0.33 ± 0.11 | **0.30 ± 0.06** | 0.58 ± 0.15 |
+| LSD-HF ↓ | 1.08 ± 0.10 | 1.05 ± 0.09 | 1.04 ± 0.08 | **1.00 ± 0.13** | 1.69 ± 0.22 |
+| **Complexity** | | | | | |
+| RTF ↓ | 0.16 ± 0.03 | 0.30 ± 0.14 | 0.26 ± 0.02 | **0.06 ± 0.02** | 4.99 ± 1.59 |
+| GFLOPs ↓ | **12.87** | **12.87** | 18.99 | 30.39 | 2536.2 |
+| #params ↓ | **1.3 M** | **1.3 M** | 1.8 M | 49.4 M | 1285.4 M |
