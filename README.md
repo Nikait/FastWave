@@ -70,6 +70,20 @@ For comparison we include [AudioSR](https://arxiv.org/abs/2309.07314) (latent di
 | #params ↓ | **1.3 M** | **1.3 M** | 1.8 M | 49.4 M | 1285.4 M |
 
 
+## Setup
+
+### Requirements
+
+```bash
+conda create -n fastwave python=3.11 -y
+conda activate fastwave
+
+git clone https://github.com/Nikait/FastWave.git
+cd FastWave
+pip install -r requirements.txt
+```
+
+
 ## Dataset
 
 ### Dataset
@@ -78,5 +92,17 @@ FastWave was trained and evaluated on the **VCTK dataset** (48 kHz, ~44 hours of
 
 1. Download VCTK from the [official source](https://datashare.ed.ac.uk/handle/10283/3443).
 2. Remove speaker p280 and p315
-3. run flac2wav.py on this dataset
+3. Run flac2wav.py on this dataset
+4. As the output you should have wav48_silence_trimmed_wav directory with dataset next to the train.py file
+
+
+## Configuration
+
+## Training
+
+```bash
+python train.py
+```
+
+
 
