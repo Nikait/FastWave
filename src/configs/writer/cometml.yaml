@@ -1,0 +1,10 @@
+_target_: src.logger.CometMLWriter
+api_key: CLTA1gDmyD4bunXRIWEkSpOkX
+project_name: "edm_convnetxt"
+workspace: null
+run_name: "edm_convnetxt"
+mode: "online"
+loss_names: ["loss", "loss_total", "loss_recon", "loss_logvar"] # which losses to log (useful for multi-loss tasks, s.a. GANs)
+log_checkpoints: False # set to True if you want to log save_dir with checkpoints to W&B
+id_length: 32 # length of the run_id
+checkpoint_dir: "checkpoint"

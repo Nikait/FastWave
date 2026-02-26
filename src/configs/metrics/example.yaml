@@ -1,0 +1,31 @@
+device: "auto"
+
+train:
+  - _target_: src.metrics.snr_metric.SNRMetric
+    device: ${metrics.device}
+    name: "TRAIN_SNR"
+
+  - _target_: src.metrics.lsd_metric.LSDMetric
+    device: ${metrics.device}
+    name: "TRAIN_LSD"
+
+
+inference:
+  - _target_: src.metrics.snr_metric.SNRMetric
+    device: ${metrics.device}
+    name: "EVAL_SNR"
+
+  - _target_: src.metrics.lsd_metric.LSDMetric
+    device: ${metrics.device}
+    name: "EVAL_LSD"
+
+  - _target_: src.metrics.lsdlf_metric.LSDLFMetric
+    device: ${metrics.device}
+    name: "EVAL_LSDLF"
+
+  - _target_: src.metrics.lsdhf_metric.LSDHFMetric
+    device: ${metrics.device}
+    name: "EVAL_LSDHF"
+    
+  - _target_: src.metrics.rtf_metric.RTFMetric
+    name: "RTF"

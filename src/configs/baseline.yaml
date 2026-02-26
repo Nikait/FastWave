@@ -1,0 +1,51 @@
+defaults:
+  - model: baseline
+  - writer: cometml
+  - metrics: example
+  - datasets: example
+  - dataloader: example
+  - transforms: example
+  - _self_
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 2e-4
+  eps: 1e-9
+  betas: [0.9, 0.99]
+  weight_decay: 0.00
+
+lr_scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  gamma: 1
+  step_size: ${trainer.epoch_len}
+loss_function:
+  _target_: src.loss.EDMLoss
+trainer:
+  log_step: 1
+  n_epochs: 600
+  epoch_len: 500
+  device_tensors: ["data_object", "wav_l", "band"] # which tensors should be on device (ex. GPU)
+  resume_from: "checkpoint-epoch155.pth" # null or path to the checkpoint dir with *.pth and config.yaml
+  device: auto # device name or "auto"
+  override: False # if True, will override the previous run with the same name
+  monitor: "max test_MulticlassAccuracy" # "off" or "max/min metric_name", i.e. our goal is to maximize/minimize metric
+  save_period: 1 # checkpoint each save_period epochs in addition to the best epoch
+  early_stop: ${trainer.n_epochs} # epochs for early stopping
+  save_dir: "saved"
+  seed: 1
+
+audio:
+  filter_length: 1024
+  hop_length: 256
+  win_length: 1024
+  sampling_rate: 48000
+  reduced_sampling_rate: 24000
+  sr_min: 6000
+  sr_max: 48000
+  length: 32768 #32*1024 ~ 1sec
+
+
+log:
+  name: 'nuwave2'
+  checkpoint_dir: 'checkpoint'
+  tensorboard_dir: 'tensorboard'
+  test_result_dir: 'test_sample/result'

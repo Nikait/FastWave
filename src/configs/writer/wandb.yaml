@@ -1,0 +1,9 @@
+_target_: src.logger.WandBWriter
+project_name: "nuwave2"
+entity: null
+run_name: "edm_l2_loss_without_weight"
+mode: "online"
+loss_names: ["loss", "weight"] # which losses to log (useful for multi-loss tasks, s.a. GANs)
+log_checkpoints: False # set to True if you want to log save_dir with checkpoints to W&B
+id_length: 8 # length of the run_id
+checkpoint_dir: "checkpoint"

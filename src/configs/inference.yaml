@@ -1,0 +1,47 @@
+defaults:
+  - model: baseline
+  - metrics: example
+  - datasets: example # we do not want to run inference on training data
+  - dataloader: example
+  - transforms: example
+  - _self_
+inferencer:
+  device_tensors: ["data_object", "wav_l", "band"] # which tensors should be on device (ex. GPU)
+  device: auto # device name or "auto"
+  save_path: "" # any name here, can be a dataset name
+  seed: 1
+  steps: 4
+  rho: 8
+
+  from_pretrained: "checkpoint-epoch140.pth" # path to the pretrained model
+  from_pretrained_bad: "checkpoint-epoch5.pth" # path to the bad version of pretrained model (like undertrain)
+
+  guidance: 1.6
+  S_churn: 0
+  S_min: 0
+  S_max: 0
+  S_noise: 0
+
+
+audio:
+  filter_length: 1024
+  hop_length: 256
+  win_length: 1024
+  sampling_rate: 48000
+  reduced_sampling_rate: 16000
+  sr_min: 6000
+  sr_max: 48000
+  length: 32768
+
+logsnr:
+  logsnr_min: -20.0
+  logsnr_max: 20.0
+
+dpm:
+  max_step: 1000
+  pos_emb_scale: 50000
+  pos_emb_channels: 128 
+  infer_step: 8
+  infer_schedule: "torch.tensor([-2.6, -0.8, 2.0, 6.4, 9.8, 12.9, 14.4, 17.2])"
+
+
