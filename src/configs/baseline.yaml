@@ -24,7 +24,7 @@ trainer:
   n_epochs: 600
   epoch_len: 500
   device_tensors: ["data_object", "wav_l", "band"] # which tensors should be on device (ex. GPU)
-  resume_from: "checkpoint-epoch155.pth" # null or path to the checkpoint dir with *.pth and config.yaml
+  resume_from: null #"checkpoint-epoch155.pth" # null or path to the checkpoint dir with *.pth and config.yaml
   device: auto # device name or "auto"
   override: False # if True, will override the previous run with the same name
   monitor: "max test_MulticlassAccuracy" # "off" or "max/min metric_name", i.e. our goal is to maximize/minimize metric
