@@ -98,10 +98,39 @@ FastWave was trained and evaluated on the **VCTK dataset** (48 kHz, ~44 hours of
 
 ## Configuration
 
+All configuration files are located in `src/configs/`.
+```
+src/configs/
+├── baseline.yaml       # Main training config
+├── inference.yaml      # Inference config
+├── dataloader/
+├── datasets/
+├── metrics/
+├── model/
+├── transforms/
+└── writer/
+```
+
+### Training
+
+Before training, configure `src/configs/baseline.yaml`. The project uses **Comet ML** for experiment tracking — paste your API key in the writer config section.
+
+### Inference
+
+Before running inference, configure `src/configs/inference.yaml` with:
+- Path to the model checkpoint
+- Input sample rate of your audio
+
 ## Training
 
 ```bash
 python train.py
+```
+
+## Inference
+
+```bash
+python inference.py
 ```
 
 
