@@ -1,5 +1,5 @@
 _target_: src.logger.CometMLWriter
-api_key: CLTA1gDmyD4bunXRIWEkSpOkX
+api_key: enter_your_api
 project_name: "edm_convnetxt"
 workspace: null
 run_name: "edm_convnetxt"
