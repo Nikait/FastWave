@@ -121,6 +121,9 @@ Before running inference, configure `src/configs/inference.yaml` with:
 - Path to the model checkpoint
 - Input sample rate of your audio
 
+To run / reproduce our checkpoint, firstly, download it from [click](https://drive.google.com/file/d/1oNCxrKjgiWsYGW6P49rsI84vFYR5G3m8/view?usp=sharing)
+ then place to the saved/edm_convnetxt directory in the project directory.
+
 ## Training
 
 ```bash
