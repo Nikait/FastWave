@@ -19,7 +19,7 @@ We track three successive model versions:
 
 ## Architecture
 
-FastWave builds on the NU-Wave 2 backbone with two independent sets of changes.
+FastWave builds on the [NU-Wave 2](https://arxiv.org/abs/2206.08545) backbone with two independent sets of changes.
 
 ### From [EDM](https://arxiv.org/abs/2206.00364)
 
