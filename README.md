@@ -1,5 +1,8 @@
 # FastWave: Optimized Diffusion Model for Audio Super-Resolution
 
+:scroll: [Arxiv](https://arxiv.org/abs/2603.04122)  &nbsp; 
+
+
 ## TL;DR
 FastWave is a lightweight diffusion model for general audio super-resolution (any -> 48 kHz). It matches SOTA quality with just **1.3 M parameters**, **~50 GFLOPs** total at 4 NFE or 8 for slightly better quality, and trains on a single GPU in a fraction of the time required by competing approaches.
 
@@ -137,4 +140,14 @@ python inference.py
 ```
 
 
+## Citation
+
+If you would like to cite us, please consider following form:
+
+@article{kuznetsov2026fastwave,
+  title={FastWave: Optimized Diffusion Model for Audio Super-Resolution},
+  author={Kuznetsov, Nikita and Kaledin, Maksim},
+  journal={arXiv preprint arXiv:2603.04122},
+  year={2026}
+}
 
