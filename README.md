@@ -145,10 +145,13 @@ python inference.py
 If you would like to cite us, please consider following form:
 
 ```bib
-@article{kuznetsov2026fastwave,
-  title={FastWave: Optimized Diffusion Model for Audio Super-Resolution},
-  author={Kuznetsov, Nikita and Kaledin, Maksim},
-  journal={arXiv preprint arXiv:2603.04122},
-  year={2026}
+@misc{kuznetsov2026fastwaveoptimizeddiffusionmodel,
+      title={FastWave: Optimized Diffusion Model for Audio Super-Resolution}, 
+      author={Nikita Kuznetsov and Maksim Kaledin},
+      year={2026},
+      eprint={2603.04122},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD},
+      url={https://arxiv.org/abs/2603.04122}, 
 }
 ```
