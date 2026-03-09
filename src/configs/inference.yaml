@@ -10,7 +10,7 @@ inferencer:
   device: auto # device name or "auto"
   save_path: "" # any name here, can be a dataset name
   seed: 1
-  steps: 4
+  steps: 8
   rho: 8
 
   from_pretrained: "checkpoint-epoch140.pth" # path to the pretrained model
@@ -22,13 +22,19 @@ inferencer:
   S_max: 0
   S_noise: 0
 
+  streaming:
+    overlap_ratio: 0.5       # 0.0 = no overlap, 0.5/0.75 = with overlap
+    use_overlap: true         # run version with overlap-add
+    max_test_chunks: 9999999
+    num_flush_chunks: 8
+
 
 audio:
   filter_length: 1024
   hop_length: 256
   win_length: 1024
   sampling_rate: 48000
-  reduced_sampling_rate: 16000
+  reduced_sampling_rate: 24000
   sr_min: 6000
   sr_max: 48000
   length: 32768
