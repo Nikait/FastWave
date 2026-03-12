@@ -101,7 +101,9 @@ FastWave was trained and evaluated on the **VCTK dataset** (48 kHz, ~44 hours of
 
 ## Configuration
 
-All configuration files are located in `src/configs/`.
+Code based on the [template](https://github.com/Blinorot/pytorch_project_template), there you can find detailed settings for use.
+
+Basically all configuration files are located in `src/configs/`.
 ```
 src/configs/
 ├── baseline.yaml       # Main training config
